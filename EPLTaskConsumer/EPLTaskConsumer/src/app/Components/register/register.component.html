@@ -1,0 +1,44 @@
+<div class="col-md-9 container">
+    <div class="card card-container mt-5 ">
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text" class="form-control" name="Username" [(ngModel)]="form.Username" required
+                    minlength="3" maxlength="20" #username="ngModel" />
+                <div class="alert-danger" *ngIf="username.invalid && f.submitted">
+                    <div *ngIf="username.errors">Username length must be > 3 and < 21 characters</div>
+                   
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="text" class="form-control" name="mobile" [(ngModel)]="form.Mobile" required
+                minlength="11" maxlength="11" mobile #mobile="ngModel" />
+                <div class="alert-danger" *ngIf="mobile.errors && f.submitted">
+                    Mobile must be numeric of length 11
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="form.Password" required
+                    minlength="6" #password="ngModel" />
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors">Password must be of length 6 at least </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-block">Sign Up</button>
+            </div>
+
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br />{{ errorMessage }}
+            </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            Your registration is successful!
+        </div>
+    </div>
+  
+
+</div>

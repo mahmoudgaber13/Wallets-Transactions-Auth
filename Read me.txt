@@ -1,0 +1,7 @@
+Greetings
+
+this folder contains:-
+
+1-DB backup you can use or you can use migration to create the database again 
+2-Angular consumer app without node modules so you have to add them
+3-net core api 

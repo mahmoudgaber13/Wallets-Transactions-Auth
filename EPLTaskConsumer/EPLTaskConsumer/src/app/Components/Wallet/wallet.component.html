@@ -1,0 +1,37 @@
+<div class="col-md-9 container">
+    <div class="card card-container mt-5 ">
+        <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <!-- <div class="form-group">
+                <label for="SenderMobile">Sender Mobile</label>
+                <input type="text" class="form-control" name="SenderMobile" [(ngModel)]="form.SenderMobile" required mobile
+                    minlength="11" maxlength="11" #SenderMobile="ngModel" />
+                
+            </div> -->
+            <div class="form-group">
+                <label for="RecieverMobile">RecieverMobile</label>
+                <input type="text" class="form-control" name="RecieverMobile" [(ngModel)]="form.RecieverMobile" required mobile #RecieverMobile="ngModel" />
+                
+            </div>
+            <div class="form-group">
+                <label for="Amount">Amount</label>
+                <input type="number" class="form-control" name="Amount" [(ngModel)]="form.Amount" required
+                    minlength="6" #Amount="ngModel" />
+                
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-block">Transfer</button>
+            </div>
+
+            
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            Your Transfer is successful!
+        </div>
+        <div class="alert alert-danger" *ngIf="isNotSuccessful">
+            {{errorMessage}}
+        </div>
+    </div>
+   
+
+</div>
